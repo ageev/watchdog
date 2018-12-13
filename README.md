@@ -18,8 +18,10 @@ add phones to watchdog.cfg
 customise login&password&ip&address_book in the script
 copy to /usr/local/sbin 
 set schedule:
+'''
 sudo crontab -e
 * * * * * /usr/bin/python /usr/local/sbin/watchdog.py > /dev/null 2>&1
+'''
 
 check logs after a while
 cat /usr/local/sbin/watchdog.log
