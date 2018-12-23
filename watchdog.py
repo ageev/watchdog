@@ -16,11 +16,18 @@ ADDRESS = '192.168.1.10:5001' #NAS IP and port
 ADDRESS_BOOK = {'192.168.1.1' : 'User1', '192.168.1.2' : 'User2'}
 
 dir_path = os.path.dirname(os.path.realpath(__file__)) # get current script dir
+
+# set log dir
+if os.path.exists('C:/Windows/'):
+    LOG_DIR = dir_path
+else:
+    LOG_DIR = "/var/log/"
+
 logging.basicConfig(
-    filename = os.path.join(dir_path, 'watchdog.log'),
+    filename = os.path.join(LOG_DIR, 'watchdog.log'),
     format='%(asctime)s %(levelname)-5s %(message)s', 
     datefmt='%Y-%m-%d %H:%M:%S', 
-    level=logging.INFO
+    level=logging.DEBUG
     )
 logger = logging.getLogger(__name__)
 
